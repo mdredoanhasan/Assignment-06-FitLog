@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa";
 
 const BannerPage = () => {
   return (
@@ -16,9 +17,13 @@ const BannerPage = () => {
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
-          <button className="btn bg-[#C2F800] px-6 py-3 rounded-full text-sm font-bold text-black/80 md:text-base">
+          <a
+            href="#library"
+            className="btn rounded-full bg-[#C2F800] px-6 py-3 text-sm font-bold text-black/80 md:text-base"
+          >
             BROWSE WORKOUTS
-          </button>
+            <FaArrowRight aria-hidden="true" />
+          </a>
         </div>
 
         <div className="flex w-full items-center justify-center lg:w-1/2">
