@@ -1,7 +1,7 @@
 import AddToPlan from "@/app/button/addToPlan";
 import SavedPlan from "@/app/button/savePlan";
 import Image from "next/image";
-import { FiBookmark } from "react-icons/fi";
+
 
 export default function DetailClient({ fitCard }) {
   const stats = [

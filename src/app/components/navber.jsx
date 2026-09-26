@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
+import { WorkoutContext } from "../context/workoutContext";
 
 const Navber = () => {
+  const {todayPlan,savedPlan}= useContext(WorkoutContext)
   const pathname = usePathname();
 
   const isActive = pathname === "/";
@@ -55,7 +57,7 @@ const Navber = () => {
             <span className="text-sm">Plan</span>
 
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-lime-400 text-sm font-semibold text-black">
-              0
+              {todayPlan.length}
             </span>
           </div>
 
@@ -64,7 +66,7 @@ const Navber = () => {
             <span className="text-sm">Saved</span>
 
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-700 text-sm text-gray-300">
-              0
+              {savedPlan.length}
             </span>
           </div>
         </div>
