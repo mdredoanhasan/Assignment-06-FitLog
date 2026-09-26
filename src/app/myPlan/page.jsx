@@ -6,7 +6,16 @@ import SavedCard from "./mySaveCard";
 import Link from "next/link";
 
 const MyPlan = () => {
-  const { todayPlan, savedPlan } = useContext(WorkoutContext);
+  const { todayPlan, savedPlan, setTodayPlan, setSavedPlan } =
+    useContext(WorkoutContext);
+
+  const removeTodayPlan = (id) => {
+    setTodayPlan((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const removeSavedPlan = (id) => {
+    setSavedPlan((prev) => prev.filter((item) => item.id !== id));
+  };
 
   return (
     <div className="min-h-screen bg-[#0d0f13] text-white">
@@ -60,7 +69,13 @@ const MyPlan = () => {
               <div>
                 {todayPlan.length > 0 ? (
                   todayPlan.map((fitData) => {
-                    return <MyPlanCard key={fitData.id} fitData={fitData} />;
+                    return (
+                      <MyPlanCard
+                        key={fitData.id}
+                        fitData={fitData}
+                        onRemove={removeTodayPlan}
+                      />
+                    );
                   })
                 ) : (
                   <div className="mt-5 flex min-h-[260px] flex-col items-center justify-center rounded-xl border border-dashed border-[#252932] bg-[#0d0f13]">
@@ -92,7 +107,13 @@ const MyPlan = () => {
               <div>
                 {savedPlan.length > 0 ? (
                   savedPlan.map((fitData) => {
-                    return <SavedCard key={fitData.id} fitData={fitData} />;
+                    return (
+                      <SavedCard
+                        key={fitData.id}
+                        fitData={fitData}
+                        onRemove={removeSavedPlan}
+                      />
+                    );
                   })
                 ) : (
                   <div className="mt-5 flex min-h-[260px] flex-col items-center justify-center rounded-xl border border-dashed border-[#252932] bg-[#0d0f13]">

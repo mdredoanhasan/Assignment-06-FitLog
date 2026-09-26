@@ -1,8 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-const MyPlanCard = ({ fitData }) => {
+const MyPlanCard = ({ fitData, onRemove }) => {
+  const [isDone, setIsDone] = useState(false);
+
+  const handleDelete = () => {
+    onRemove(fitData.id);
+    toast.success(`${fitData.name} removed from today's plan`);
+  };
+
+  const handleMarkDone = () => {
+    setIsDone(true);
+    toast.success(`${fitData.name} marked as done`);
+  };
+
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-[#252932] bg-[#12151b] p-3">
       {/* Image */}
@@ -46,17 +59,32 @@ const MyPlanCard = ({ fitData }) => {
 
       {/* Actions */}
       <div className="flex items-center gap-3">
-        <Link href={'/'}>
-          <button className="rounded-full border border-[#343b49] px-4 py-2 text-xs text-white transition hover:bg-[#1b1f27]">
-            View Details
-          </button>
+        <Link
+          href={`/heroSection/${fitData.id}`}
+          className="rounded-full border border-[#343b49] px-4 py-2 text-xs text-white transition hover:bg-[#1b1f27]"
+        >
+          View Details
         </Link>
 
-        <button className="rounded-full bg-[#b8ff00] px-4 py-2 text-xs font-semibold text-black transition hover:bg-[#c8ff33]">
-          ✓ Mark as Done
+        <button
+          type="button"
+          disabled={isDone}
+          onClick={handleMarkDone}
+          className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
+            isDone
+              ? " bg-[#2f3a2a] text-[#d7fca0]"
+              : "bg-[#b8ff00] text-black hover:bg-[#c8ff33]"
+          }`}
+        >
+          {isDone ? "Done" : "✓ Mark as Done"}
         </button>
 
-        <button className="px-2 text-lg text-gray-500 hover:text-white">
+        <button
+          type="button"
+          onClick={handleDelete}
+          className="px-2 text-lg text-gray-500 hover:text-white"
+          aria-label={`Remove ${fitData.name}`}
+        >
           ×
         </button>
       </div>
