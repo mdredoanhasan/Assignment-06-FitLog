@@ -17,14 +17,14 @@ const MyPlanCard = ({ fitData, onRemove }) => {
   };
 
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-[#252932] bg-[#12151b] p-3">
+    <div className="flex flex-col gap-3 rounded-2xl border border-[#252932] bg-[#12151b] p-3 sm:flex-row sm:items-center">
       {/* Image */}
       <Image
         src={fitData.image}
         alt={fitData.name}
         width={400}
         height={400}
-        className="h-16 w-28 rounded-xl object-cover"
+        className="h-40 w-full rounded-xl object-cover sm:h-16 sm:w-28"
       />
 
       {/* Workout Info */}
@@ -58,10 +58,10 @@ const MyPlanCard = ({ fitData, onRemove }) => {
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
         <Link
           href={`/heroSection/${fitData.id}`}
-          className="rounded-full border border-[#343b49] px-4 py-2 text-xs text-white transition hover:bg-[#1b1f27]"
+          className="inline-flex rounded-full border border-[#343b49] px-4 py-2 text-xs text-white transition hover:bg-[#1b1f27]"
         >
           View Details
         </Link>

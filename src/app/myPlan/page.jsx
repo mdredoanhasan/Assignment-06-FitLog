@@ -61,7 +61,7 @@ const MyPlan = () => {
         {/* Statistics */}
         <div className="grid grid-cols-1 gap-0 overflow-hidden rounded-xl border border-[#252932] bg-[#12151b] sm:grid-cols-3">
           {/* Exercises */}
-          <div className="border-r border-[#252932] px-6 py-7">
+          <div className="border-b border-[#252932] px-6 py-7 sm:border-b-0 sm:border-r">
             <p className="text-xs text-gray-500">Exercises</p>
 
             <p className="mt-1.5 text-3xl font-bold text-[#b8ff00]">
@@ -70,7 +70,7 @@ const MyPlan = () => {
           </div>
 
           {/* Minutes */}
-          <div className="border-r border-[#252932] px-6 py-7">
+          <div className="border-b border-[#252932] px-6 py-7 sm:border-b-0 sm:border-r">
             <p className="text-xs text-gray-500">Minutes</p>
 
             <p className="mt-1.5 text-3xl font-bold">{totalMinutes}</p>
@@ -174,7 +174,7 @@ const MyPlan = () => {
           </div>
 
           {/* Sort */}
-          <div className="absolute right-0 top-0 flex h-9 items-center gap-2.5">
+          <div className="mt-4 flex items-center justify-end gap-2.5 md:absolute md:right-0 md:top-0 md:mt-0">
             <span className="text-xs text-gray-500">Sort By</span>
 
             <div className="relative">
