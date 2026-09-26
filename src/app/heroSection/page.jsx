@@ -10,10 +10,12 @@ const getdata = async () => {
 const HeroSection = async () => {
   const fitLogData = await getdata();
   return (
-    <div className="container mx-auto mt-30 mb-30">
-      <h2 className="font-bold text-4xl mb-2">THE LIBRARY</h2>
-      <p className="mb-12 opacity-60">Twelve lifts covering every major muscle group.</p>
-      <ul className="grid grid-cols-3 gap-8 ">
+    <div className="container mx-auto mt-12 mb-20 px-4 md:mt-20 md:px-6 lg:mt-30">
+      <h2 className="mb-2 text-3xl font-bold md:text-4xl">THE LIBRARY</h2>
+      <p className="mb-8 opacity-60 md:mb-12">
+        Twelve lifts covering every major muscle group.
+      </p>
+      <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {fitLogData.map((fitlog) => {
           return <FitLogCard key={fitlog.id} fitlog={fitlog}></FitLogCard>;
         })}

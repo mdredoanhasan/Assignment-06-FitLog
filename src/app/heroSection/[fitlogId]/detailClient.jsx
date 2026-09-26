@@ -2,7 +2,6 @@ import AddToPlan from "@/app/button/addToPlan";
 import SavedPlan from "@/app/button/savePlan";
 import Image from "next/image";
 
-
 export default function DetailClient({ fitCard }) {
   const stats = [
     { label: "Equipment", value: fitCard.equipment },
@@ -15,9 +14,9 @@ export default function DetailClient({ fitCard }) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0C0D10] px-6 py-10 text-white">
+    <div className="min-h-screen bg-[#0C0D10] px-4 py-8 text-white sm:px-6 md:py-10">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
-        <div className="relative h-80 w-full overflow-hidden rounded-2xl lg:h-full">
+        <div className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-80 lg:h-full">
           <Image
             src={fitCard.image}
             alt={fitCard.name}

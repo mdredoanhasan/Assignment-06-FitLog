@@ -7,10 +7,15 @@ import { PiFireSimpleFill } from "react-icons/pi";
 
 const FitLogCard = ({ fitlog }) => {
   return (
-    <Link href={`/heroSection/${fitlog.id}`}>
-      <div className="w-full overflow-hidden rounded-3xl bg-[#1c1f27]">
-        <div className="relative h-74 w-full">
-          <Image src={fitlog.image} alt={fitlog.name} fill />
+    <Link href={`/heroSection/${fitlog.id}`} className="block h-full">
+      <div className="h-full w-full overflow-hidden rounded-3xl bg-[#1c1f27] transition hover:scale-[1.01] hover:shadow-lg hover:shadow-black/20">
+        <div className="relative h-56 w-full sm:h-64">
+          <Image
+            src={fitlog.image}
+            alt={fitlog.name}
+            fill
+            className="object-cover"
+          />
         </div>
 
         <div className="px-4 pb-4 pt-3">

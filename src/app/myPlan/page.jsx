@@ -48,7 +48,7 @@ const MyPlan = () => {
 
   return (
     <div className="min-h-screen bg-[#0d0f13] text-white">
-      <div className="container mx-auto px-8 py-10">
+      <div className="container mx-auto px-4 py-8 md:px-8 md:py-10">
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-3xl font-bold tracking-tight">MY PLAN</h1>
@@ -59,7 +59,7 @@ const MyPlan = () => {
         </div>
 
         {/* Statistics */}
-        <div className="grid grid-cols-3 rounded-xl border border-[#252932] bg-[#12151b]">
+        <div className="grid grid-cols-1 gap-0 overflow-hidden rounded-xl border border-[#252932] bg-[#12151b] sm:grid-cols-3">
           {/* Exercises */}
           <div className="border-r border-[#252932] px-6 py-7">
             <p className="text-xs text-gray-500">Exercises</p>
