@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const MyPlanCard = ({ fitData }) => {
@@ -7,9 +8,9 @@ const MyPlanCard = ({ fitData }) => {
       {/* Image */}
       <Image
         src={fitData.image}
-              alt={fitData.name}
-              width={400}
-              height={400}
+        alt={fitData.name}
+        width={400}
+        height={400}
         className="h-16 w-28 rounded-xl object-cover"
       />
 
@@ -45,9 +46,11 @@ const MyPlanCard = ({ fitData }) => {
 
       {/* Actions */}
       <div className="flex items-center gap-3">
-        <button className="rounded-full border border-[#343b49] px-4 py-2 text-xs text-white transition hover:bg-[#1b1f27]">
-          View Details
-        </button>
+        <Link href={'/'}>
+          <button className="rounded-full border border-[#343b49] px-4 py-2 text-xs text-white transition hover:bg-[#1b1f27]">
+            View Details
+          </button>
+        </Link>
 
         <button className="rounded-full bg-[#b8ff00] px-4 py-2 text-xs font-semibold text-black transition hover:bg-[#c8ff33]">
           ✓ Mark as Done
