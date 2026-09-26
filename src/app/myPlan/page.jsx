@@ -53,7 +53,7 @@ const MyPlan = () => {
                   return <MyPlanCard key={fitData.id} fitData={fitData} />;
                 })
               ) : (
-                <div className="mt-4 flex min-h-[195px] flex-col items-center justify-center rounded-lg border border-dashed border-[#252932] bg-[#0d0f13]">
+                <div className="mt-4 flex min-h-48.75 flex-col items-center justify-center rounded-lg border border-dashed border-[#252932] bg-[#0d0f13]">
                   <h2 className="text-sm font-bold">NOTHING HERE YET</h2>
 
                   <p className="mt-1 text-[10px] text-gray-500">
@@ -84,7 +84,7 @@ const MyPlan = () => {
                   return <MyPlanCard key={fitData.id} fitData={fitData} />;
                 })
               ) : (
-                <div className="mt-4 flex min-h-[195px] flex-col items-center justify-center rounded-lg border border-dashed border-[#252932] bg-[#0d0f13]">
+                <div className="mt-4 flex min-h-48.75 flex-col items-center justify-center rounded-lg border border-dashed border-[#252932] bg-[#0d0f13]">
                   <h2 className="text-sm font-bold">NOTHING HERE YET</h2>
 
                   <p className="mt-1 text-[10px] text-gray-500">

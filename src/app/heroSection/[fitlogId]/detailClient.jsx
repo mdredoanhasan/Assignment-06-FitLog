@@ -1,12 +1,9 @@
-
-
 import AddToPlan from "@/app/button/addToPlan";
+import SavedPlan from "@/app/button/savePlan";
 import Image from "next/image";
 import { FiBookmark } from "react-icons/fi";
 
-
 export default function DetailClient({ fitCard }) {
-
   const stats = [
     { label: "Equipment", value: fitCard.equipment },
     { label: "Difficulty", value: fitCard.difficulty },
@@ -79,12 +76,7 @@ export default function DetailClient({ fitCard }) {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <AddToPlan fitCard={fitCard} />
-            <button
-              className="flex items-center justify-center gap-1 rounded-2xl border border-white/20 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/5"
-            >
-              <FiBookmark />
-              Save for later
-            </button>
+            <SavedPlan fitCard={fitCard} />
           </div>
         </div>
       </div>
