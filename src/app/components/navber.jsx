@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 import { WorkoutContext } from "../context/workoutContext";
 
 const Navber = () => {
-  const { todayPlan, savedPlan } = useContext(WorkoutContext);
+  const { todayPlan, savedPlan, setActivePlanTab } = useContext(WorkoutContext);
   const pathname = usePathname();
 
   const isActive = pathname === "/";
@@ -54,21 +54,29 @@ const Navber = () => {
           </ul>
 
           <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-8">
-            <div className="flex items-center gap-1 text-gray-300 md:gap-3">
+            <Link
+              href="/myPlan"
+              onClick={() => setActivePlanTab("today")}
+              className="flex items-center gap-1 text-gray-300 transition hover:text-white md:gap-3"
+            >
               <span className="text-[10px] md:text-sm">Plan</span>
 
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-lime-400 text-[10px] font-semibold text-black md:h-7 md:w-7 md:text-sm">
                 {todayPlan.length}
               </span>
-            </div>
+            </Link>
 
-            <div className="flex items-center gap-1 text-gray-400 md:gap-3">
+            <Link
+              href="/myPlan"
+              onClick={() => setActivePlanTab("saved")}
+              className="flex items-center gap-1 text-gray-400 transition hover:text-white md:gap-3"
+            >
               <span className="text-[10px] md:text-sm">Saved</span>
 
               <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gray-700 text-[10px] text-gray-300 md:h-7 md:w-7 md:text-sm">
                 {savedPlan.length}
               </span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

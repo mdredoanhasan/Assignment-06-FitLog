@@ -7,9 +7,14 @@ import Link from "next/link";
 import { IoChevronDown } from "react-icons/io5";
 
 const MyPlan = () => {
-  const { todayPlan, savedPlan, setTodayPlan, setSavedPlan } =
-    useContext(WorkoutContext);
-  const [activeTab, setActiveTab] = useState("today");
+  const {
+    todayPlan,
+    savedPlan,
+    setTodayPlan,
+    setSavedPlan,
+    activePlanTab,
+    setActivePlanTab,
+  } = useContext(WorkoutContext);
   const [sortBy, setSortBy] = useState("Duration");
 
   const removeTodayPlan = (id) => {
@@ -20,7 +25,7 @@ const MyPlan = () => {
     setSavedPlan((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const activePlan = activeTab === "today" ? todayPlan : savedPlan;
+  const activePlan = activePlanTab === "today" ? todayPlan : savedPlan;
 
   const visiblePlan = useMemo(() => {
     const sorted = [...activePlan];
@@ -93,13 +98,13 @@ const MyPlan = () => {
               name="my_tabs_6"
               className="tab h-9 min-h-9 w-[90px] rounded-md border border-transparent px-3 text-xs text-gray-500"
               aria-label="Today's Plan"
-              checked={activeTab === "today"}
-              onChange={() => setActiveTab("today")}
+              checked={activePlanTab === "today"}
+              onChange={() => setActivePlanTab("today")}
             />
 
             <div className="tab-content mt-3 w-full border-0 bg-transparent p-0">
               <div>
-                {activeTab === "today" ? (
+                {activePlanTab === "today" ? (
                   todayPlan.length > 0 ? (
                     visiblePlan.map((fitData) => {
                       return (
@@ -135,13 +140,13 @@ const MyPlan = () => {
               name="my_tabs_6"
               className="tab h-9 min-h-9 w-[90px] rounded-md border border-transparent px-3 text-xs text-gray-500"
               aria-label="Saved"
-              checked={activeTab === "saved"}
-              onChange={() => setActiveTab("saved")}
+              checked={activePlanTab === "saved"}
+              onChange={() => setActivePlanTab("saved")}
             />
 
             <div className="tab-content mt-3 w-full border-0 bg-transparent p-0">
               <div>
-                {activeTab === "saved" ? (
+                {activePlanTab === "saved" ? (
                   savedPlan.length > 0 ? (
                     visiblePlan.map((fitData) => {
                       return (
